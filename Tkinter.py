@@ -62,16 +62,23 @@ def botones():
 	global entrada
 	entrada = Entry(justify='center')
 	entrada.place(x = 700 , y = 100)
-	Label(root,text="Temperatura",fg="red").place(x = 750 , y = 50)
-	Button(root,text='Calcular',command=main,fg="blue").place(x = 750, y = 285)
-	Button(root,text='Cerrar',command=cerrar,fg="blue").place(x = 755, y = 330)
+	Label(root,text="Temperatura",fg="green",font="Times 20 italic bold").place(x = 700 , y = 50)
+	Button(root,text='Calcular',command=main,fg="blue").place(x = 700, y = 330)
+	Button(root,text='Cerrar',command=cerrar,fg="blue").place(x = 800, y = 330)
+
 def operacion(Temperatura):
+	global label1
+	global label2
+	global label3
 	a = blue(Temperatura)
 	b = green(Temperatura)
 	c = red(Temperatura)
-	Label(root,text="GPbaja:        " + str(a),fg="red").place(x = 745 , y = 150)
-	Label(root,text="GPbaja:        " + str(b),fg="red").place(x = 745 , y = 200)
-	Label(root,text="GPbaja:        " + str(c),fg="red").place(x = 745 , y = 250)
+	label1=Label(root,text="GPbaja:        " + str(a),fg="black")
+	label1.place(x = 700 , y = 150)
+	label2=Label(root,text="GPbaja:        " + str(b),fg="black")
+	label2.place(x = 700 , y = 200)
+	label3=Label(root,text="GPbaja:        " + str(c),fg="black")
+	label3.place(x = 700 , y = 250)
 	print("GPbaja: "+ str(a))
 	print("GPmedia: "+ str(b))
 	print("GPalta: "+ str(c))
@@ -113,7 +120,11 @@ def main():
 	global entrada
 	canvas.delete("all")
 	val = entrada.get()
+	
 	try:
+		label1.pack(side="bottom")
+		label2.pack(side="bottom")
+		label3.pack(side="bottom")
 		val = float(val)
 		print(val)
 		t = operacion(val)
@@ -128,7 +139,6 @@ def main():
 if __name__ == '__main__':
 	global canvas
 	global root
-	global te
 
 	root = Tk()
 	root.geometry("900x400")
@@ -136,4 +146,5 @@ if __name__ == '__main__':
 	canvas.pack(expand=YES, fill=BOTH)
 	botones()
 	main()
+
 	root.mainloop()
