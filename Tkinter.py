@@ -55,8 +55,7 @@ def crear(w):
 	canvas.create_line(margen + 100,margen+alto,margen+100,margen, fill ='black' , width = 2,dash=(5,4))
 	canvas.create_line(margen + (w*10),margen+alto,margen+(w*10),margen, fill ='orange' , width = 2,dash=(5,4))
 def cerrar():
-	destroyAllwindow()
-
+	root.destroy()
 
 def botones():
 	global root
