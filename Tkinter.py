@@ -1,6 +1,4 @@
 from tkinter import *
-import time
-import decimal
 
 def crear(w):
 	global canvas
